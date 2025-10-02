@@ -1,6 +1,12 @@
 [
 {
   "directory": "/home/zgz/桌面/week2/build",
+  "command": "/usr/bin/g++ -I/home/zgz/桌面/week2/./includes -g -o CMakeFiles/maze.dir/src/character.cpp.o -c /home/zgz/桌面/week2/src/character.cpp",
+  "file": "/home/zgz/桌面/week2/src/character.cpp",
+  "output": "CMakeFiles/maze.dir/src/character.cpp.o"
+},
+{
+  "directory": "/home/zgz/桌面/week2/build",
   "command": "/usr/bin/g++ -I/home/zgz/桌面/week2/./includes -g -o CMakeFiles/maze.dir/src/map.cpp.o -c /home/zgz/桌面/week2/src/map.cpp",
   "file": "/home/zgz/桌面/week2/src/map.cpp",
   "output": "CMakeFiles/maze.dir/src/map.cpp.o"
