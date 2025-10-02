@@ -1,5 +1,6 @@
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
+#include "map.hpp"
 
 class Character {
 private:
@@ -28,6 +29,9 @@ public:
     
     // 检查玩家是否死亡
     bool isDead() const;
+
+    // 处理输入并移动玩家
+    void handleInput(Map& map);
 
 };
 #endif

@@ -1,4 +1,6 @@
 #include "character.hpp"
+#include "map.hpp"
+#include <SFML/Window/Keyboard.hpp>
 
 // 构造函数
 Character::Character(int startX, int startY, int maxHP) 
@@ -35,3 +37,28 @@ void Character::takeDamage(int amount) {
 bool Character::isDead() const {
     return health <= 0;
 }
+
+void Character::handleInput(Map& map) {
+    // 检查按键并移动，每次按键移动一格
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+        if(map.isWall(x, y-1) == 0)
+            y -= 1;
+        while(sf::Keyboard::isKeyPressed(sf::Keyboard::W)); // 等待按键释放
+    }
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+        if(map.isWall(x, y+1) == 0)
+            y += 1;
+        while(sf::Keyboard::isKeyPressed(sf::Keyboard::S)); // 等待按键释放
+    }
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+        if(map.isWall(x-1, y) == 0)
+            x -= 1;
+        while(sf::Keyboard::isKeyPressed(sf::Keyboard::A)); // 等待按键释放
+    }
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+        if(map.isWall(x+1, y) == 0)
+            x += 1;
+        while(sf::Keyboard::isKeyPressed(sf::Keyboard::D)); // 等待按键释放
+    }
+}
+

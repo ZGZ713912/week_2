@@ -19,6 +19,8 @@ sf::RectangleShape cell(sf::Vector2f(CELL_SIZE - 1, CELL_SIZE - 1));
 Map map1 = MapGenerator::generateMap1();
 Map map2 = MapGenerator::generateMap2();
 
+Character character(1, 1, 3); // 初始位置(1,1)，最大生命值3
+
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(CELL_SIZE*15, CELL_SIZE*15), "maze"); // 创建一个窗口
@@ -50,25 +52,25 @@ int main()
                 // 处理菜单输入，更新游戏状态
                 gameState = uiManager.handleMenuInput(window);
                 break;
-            
+
             case PLAY_MAP1:
                 // 按ESC返回菜单
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
                     gameState = MENU;
+                    character.move(1, 1); // 重置角色位置
                 }
-                // 这里地图1的游戏逻辑
-                
-
+                // 处理游戏输入
+                character.handleInput(map1);
                 break;
-            
             case PLAY_MAP2:
                 // 按ESC返回菜单
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
                     gameState = MENU;
+                    character.move(1, 1); // 重置角色位置
                 }
-                // 这里添加地图2的游戏逻辑
+                // 处理游戏输入
+                character.handleInput(map2);
                 break;
-            
             case EXIT:
                 window.close();
                 break;
@@ -96,6 +98,9 @@ int main()
                         // 空地：浅灰色
                         cell.setFillColor(sf::Color(240, 240, 240));
                     }
+                    if(x == character.getX() && y == character.getY()){
+                        cell.setFillColor(sf::Color::Cyan);
+                    }
                     
                     // 绘制格子
                     window.draw(cell);
@@ -116,6 +121,9 @@ int main()
                     } else {
                         // 空地：浅灰色
                         cell.setFillColor(sf::Color(240, 240, 240));
+                    }
+                    if(x == character.getX() && y == character.getY()){
+                        cell.setFillColor(sf::Color::Cyan);
                     }
                     
                     // 绘制格子

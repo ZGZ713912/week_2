@@ -37,4 +37,8 @@ int Map::getHeight() const {
 const std::string& Map::getName() const { 
     return name; 
 }
+
+int Map::isWall(int x, int y){
+    return mapData[y][x]; // 1表示墙壁
+}
     

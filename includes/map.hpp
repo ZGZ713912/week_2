@@ -23,6 +23,10 @@ public:
     int getHeight() const;	// 获取地图高度
 
     const std::string& getName() const;	// 获取地图名称
+
+    int isWall(int x, int y);	// 检查指定位置是否为墙壁
+
+
 };
 
 
