@@ -13,14 +13,20 @@
 },
 {
   "directory": "/home/zgz/桌面/week2/build",
-  "command": "/usr/bin/g++ -I/home/zgz/桌面/week2/./includes -g -o CMakeFiles/maze.dir/src/map_generation.cpp.o -c /home/zgz/桌面/week2/src/map_generation.cpp",
-  "file": "/home/zgz/桌面/week2/src/map_generation.cpp",
-  "output": "CMakeFiles/maze.dir/src/map_generation.cpp.o"
+  "command": "/usr/bin/g++ -I/home/zgz/桌面/week2/./includes -g -o CMakeFiles/maze.dir/src/UI.cpp.o -c /home/zgz/桌面/week2/src/UI.cpp",
+  "file": "/home/zgz/桌面/week2/src/UI.cpp",
+  "output": "CMakeFiles/maze.dir/src/UI.cpp.o"
 },
 {
   "directory": "/home/zgz/桌面/week2/build",
   "command": "/usr/bin/g++ -I/home/zgz/桌面/week2/./includes -g -o CMakeFiles/maze.dir/src/main.cpp.o -c /home/zgz/桌面/week2/src/main.cpp",
   "file": "/home/zgz/桌面/week2/src/main.cpp",
   "output": "CMakeFiles/maze.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/zgz/桌面/week2/build",
+  "command": "/usr/bin/g++ -I/home/zgz/桌面/week2/./includes -g -o CMakeFiles/maze.dir/src/mapgeneration.cpp.o -c /home/zgz/桌面/week2/src/mapgeneration.cpp",
+  "file": "/home/zgz/桌面/week2/src/mapgeneration.cpp",
+  "output": "CMakeFiles/maze.dir/src/mapgeneration.cpp.o"
 }
 ]
