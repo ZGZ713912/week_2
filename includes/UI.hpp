@@ -21,7 +21,6 @@ private:
     sf::RectangleShape shape;  // 按钮形状
     sf::Text text;             // 按钮文字
     std::string label;         // 按钮标签
-
 public:
     // 构造函数：位置、大小、字体、文字
     Button(float x, float y, float width, float height, 

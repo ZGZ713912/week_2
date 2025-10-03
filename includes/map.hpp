@@ -15,6 +15,7 @@ private:
     int height;        //地图高度
     std::string name;      //地图名称   
     int trapcount;   //陷阱数量 
+    sf::Font m_font;  // 创建字体对象
 public:
     // 构造函数
     Map(int w, int h, const std::string& n);
@@ -39,6 +40,9 @@ public:
     void updateTraps(); // 更新陷阱
 
     void clearTraps(); // 清除陷阱
+
+    sf::Text startText();       //起点文字
+    sf::Text endText();       //终点文字
 };
 
 

@@ -33,6 +33,8 @@ public:
     // 检查玩家是否死亡
     bool isDead() const;
 
+    // 检查玩家是否胜利
+    bool isWin() const;
     //重置生命值
     void resetHealth();
 

@@ -115,6 +115,8 @@ int main()
                     window.draw(cell);
                 }
             }
+
+            window.draw(map1.endText());
             window.draw(character.healthText());
         }
         if (gameState == PLAY_MAP2) {
@@ -152,6 +154,8 @@ int main()
                     
                 }
             }
+
+            window.draw(map2.endText());
             window.draw(character.healthText());
         }
         
@@ -161,6 +165,10 @@ int main()
         // 显示绘制的内容
         window.display();
         if(character.isDead()){
+            sf::sleep(sf::seconds(2.0f));  // 单位：秒，2.0f 即 2 秒
+            gameState = MENU;
+        }
+        if(character.isWin()){
             sf::sleep(sf::seconds(2.0f));  // 单位：秒，2.0f 即 2 秒
             gameState = MENU;
         }

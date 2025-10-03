@@ -42,15 +42,23 @@ sf::Text Character::healthText(){
         // 处理错误，请将上述路径替换为系统中存在的字体文件路径
     }
     sf::Text text;                  // 创建文本对象
-    text.setFont(font);       // 绑定加载好的字体（必须）
+    text.setFont(font);       // 绑定加载好的字体
     text.setString("HP" + std::to_string(health));      // 文本内容（血量）
     text.setCharacterSize(25);  // 字体大小（像素）
     text.setFillColor(sf::Color::Red);  // 文本颜色
-    text.setPosition(x*CELL_SIZE, y*CELL_SIZE);  // 文本在窗口中的位置（居中示例）
+    text.setPosition(x*CELL_SIZE, y*CELL_SIZE);  // 文本在窗口中的位置（居中）
     if(health <= 0){
-        text.setString("GMAE\nOVER");      // 文本内容（血量）
+        text.setString("GMAE\nOVER");      // 文本内容
         text.setCharacterSize(150);  // 字体大小（像素）
+        text.setFillColor(sf::Color::Green);  // 文本颜色
         text.setPosition(7*CELL_SIZE/2, 7*CELL_SIZE/2);  // 文本在窗口中的位置（居中示例）
+        
+    }
+    if(x==13 && y==13 && health>0){
+        text.setString("YOU\nWIN");      // 文本内容
+        text.setCharacterSize(150);  // 字体大小（像素）
+        text.setFillColor(sf::Color::Green);  // 文本颜色
+        text.setPosition(7*CELL_SIZE/2, 7*CELL_SIZE/2);  // 文本在窗口中的位置（居中）
         
     }
     return text;
@@ -62,6 +70,9 @@ bool Character::isDead() const {
     return health <= 0;
 }
 
+bool Character::isWin() const {
+        return (x == 13 && y == 13 && health > 0);
+    }
 void Character::resetHealth() { health = maxhealth; } // 重置生命值
 
 void Character::handleInput(Map& map) {
