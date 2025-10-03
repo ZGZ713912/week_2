@@ -3,16 +3,24 @@
 
 #include<vector>
 #include<string>
+#include<random>  // 用于随机生成数
+#include <SFML/Graphics.hpp>
+
+// 单元格大小（像素）
+const int CELL_SIZE = 40;
 
 class Map{
 private:
     int width;         //地图宽度   
     int height;        //地图高度
     std::string name;      //地图名称   
-
+    int trapcount;   //陷阱数量 
 public:
     // 构造函数
     Map(int w, int h, const std::string& n);
+
+    sf::Clock Timer; // 陷阱计时器
+    static std::mt19937 rng; // 随机数生成器
 
     std::vector<std::vector<int>> mapData; // 地图数据网格   0表示空地，1表示墙壁	
 
@@ -26,7 +34,11 @@ public:
 
     int isWall(int x, int y);	// 检查指定位置是否为墙壁
 
+    void generateTraps();    // 生成陷阱
 
+    void updateTraps(); // 更新陷阱
+
+    void clearTraps(); // 清除陷阱
 };
 
 

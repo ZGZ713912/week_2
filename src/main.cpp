@@ -11,9 +11,6 @@
 #include <chrono>   // 包含时间相关头文件
 #include<SFML/Graphics.hpp>
 
-
-// 单元格大小（像素）
-const int CELL_SIZE = 40;
 sf::RectangleShape cell(sf::Vector2f(CELL_SIZE - 1, CELL_SIZE - 1));
 // 生成两个地图
 Map map1 = MapGenerator::generateMap1();
@@ -32,6 +29,8 @@ int main()
     // 初始状态为菜单
     GameState gameState = MENU;
 
+    map1.generateTraps(); // map1生成初始陷阱
+    map2.generateTraps(); // map2生成初始陷阱
 
     while (window.isOpen()) {
         // 处理事件
@@ -51,13 +50,15 @@ int main()
             case MENU:
                 // 处理菜单输入，更新游戏状态
                 gameState = uiManager.handleMenuInput(window);
+                character.move(1, 1); // 重置角色位置
+                character.resetHealth(); // 重置生命值
                 break;
 
             case PLAY_MAP1:
                 // 按ESC返回菜单
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
                     gameState = MENU;
-                    character.move(1, 1); // 重置角色位置
+
                 }
                 // 处理游戏输入
                 character.handleInput(map1);
@@ -66,7 +67,6 @@ int main()
                 // 按ESC返回菜单
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
                     gameState = MENU;
-                    character.move(1, 1); // 重置角色位置
                 }
                 // 处理游戏输入
                 character.handleInput(map2);
@@ -83,8 +83,12 @@ int main()
             // 渲染菜单
             uiManager.renderMenu(window);
         } 
-        else if (gameState == PLAY_MAP1) {
+        if (gameState == PLAY_MAP1) {
             // 绘制迷宫
+            map1.updateTraps(); // 更新陷阱
+            if(map1.mapData[character.getY()][character.getX()] == 2){ // 陷阱生成在角色位置
+                map1.generateTraps(); // 重新生成陷阱
+            }
             for (int y = 0; y < map1.getHeight(); y++) {
                 for (int x = 0; x < map1.getWidth(); x++) {
                     // 设置格子位置
@@ -94,9 +98,14 @@ int main()
                     if (map1.mapData[y][x] == 1) {
                         // 墙壁：深灰色
                         cell.setFillColor(sf::Color(50, 50, 50));
-                    } else {
+                    }
+                    if( map1.mapData[y][x] == 0) {
                         // 空地：浅灰色
                         cell.setFillColor(sf::Color(240, 240, 240));
+                    }
+                    if(map1.mapData[y][x] == 2) {
+                        // 陷阱：红色
+                        cell.setFillColor(sf::Color::Red);
                     }
                     if(x == character.getX() && y == character.getY()){
                         cell.setFillColor(sf::Color::Cyan);
@@ -106,9 +115,14 @@ int main()
                     window.draw(cell);
                 }
             }
+            window.draw(character.healthText());
         }
-        else if (gameState == PLAY_MAP2) {
-            // 绘制迷宫
+        if (gameState == PLAY_MAP2) {
+
+            map2.updateTraps(); // 更新陷阱
+            if(map1.mapData[character.getY()][character.getX()] == 2){ // 陷阱生成在角色位置
+                map1.generateTraps(); // 重新生成陷阱
+            }
             for (int y = 0; y < map2.getHeight(); y++) {
                 for (int x = 0; x < map2.getWidth(); x++) {
                     // 设置格子位置
@@ -118,25 +132,38 @@ int main()
                     if (map2.mapData[y][x] == 1) {
                         // 墙壁：深灰色
                         cell.setFillColor(sf::Color(50, 50, 50));
-                    } else {
+                    }  
+                    if (map2.mapData[y][x] == 0) {
                         // 空地：浅灰色
                         cell.setFillColor(sf::Color(240, 240, 240));
                     }
+                    if(map2.mapData[y][x] == 2) {
+                        // 陷阱：红色
+                        cell.setFillColor(sf::Color::Red);
+                    }
+
                     if(x == character.getX() && y == character.getY()){
                         cell.setFillColor(sf::Color::Cyan);
                     }
                     
+                    
                     // 绘制格子
                     window.draw(cell);
+                    
                 }
             }
+            window.draw(character.healthText());
         }
         
-            
+
 
 
         // 显示绘制的内容
         window.display();
+        if(character.isDead()){
+            sf::sleep(sf::seconds(2.0f));  // 单位：秒，2.0f 即 2 秒
+            gameState = MENU;
+        }
     }
 
 
