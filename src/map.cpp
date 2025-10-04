@@ -25,18 +25,6 @@ const std::string& Map::getName() const {
     return name; 
 }
 
-sf::Text Map::startText(){
-    m_font.loadFromFile("/usr/share/fonts/truetype/arphic/ukai.ttc"); //加载字体文件
-    sf::Text s_text;                  // 创建文本对象
-    s_text.setFont(m_font);       // 绑定加载好的字体
-    s_text.setString("sta\nrt");      // 文本内容
-    s_text.setCharacterSize(20);  // 字体大小
-    s_text.setFillColor(sf::Color::Red);  // 文本颜色
-    s_text.setPosition(1*CELL_SIZE, 1*CELL_SIZE);  // 文本在窗口中的位置（居中示例）
-
-    return s_text;
-    
-}
 
 sf::Text Map::endText(){
     m_font.loadFromFile("/usr/share/fonts/truetype/arphic/ukai.ttc"); //加载字体文件

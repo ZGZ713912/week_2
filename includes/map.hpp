@@ -41,7 +41,6 @@ public:
 
     void clearTraps(); // 清除陷阱
 
-    sf::Text startText();       //起点文字
     sf::Text endText();       //终点文字
 };
 
