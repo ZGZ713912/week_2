@@ -84,6 +84,13 @@ build CMakeFiles/maze.dir/src/mapgeneration.cpp.o: CXX_COMPILER__maze_unscanned_
   OBJECT_DIR = CMakeFiles/maze.dir
   OBJECT_FILE_DIR = CMakeFiles/maze.dir/src
 
+build CMakeFiles/maze.dir/src/window.cpp.o: CXX_COMPILER__maze_unscanned_Debug /home/zgz/桌面/week2/src/window.cpp || cmake_object_order_depends_target_maze
+  DEP_FILE = CMakeFiles/maze.dir/src/window.cpp.o.d
+  FLAGS = -g
+  INCLUDES = -I/home/zgz/桌面/week2/./includes
+  OBJECT_DIR = CMakeFiles/maze.dir
+  OBJECT_FILE_DIR = CMakeFiles/maze.dir/src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target maze
@@ -92,7 +99,7 @@ build CMakeFiles/maze.dir/src/mapgeneration.cpp.o: CXX_COMPILER__maze_unscanned_
 #############################################
 # Link the executable maze
 
-build maze: CXX_EXECUTABLE_LINKER__maze_Debug CMakeFiles/maze.dir/src/character.cpp.o CMakeFiles/maze.dir/src/map.cpp.o CMakeFiles/maze.dir/src/UI.cpp.o CMakeFiles/maze.dir/src/main.cpp.o CMakeFiles/maze.dir/src/mapgeneration.cpp.o | /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.6.1 /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.6.1 /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.6.1
+build maze: CXX_EXECUTABLE_LINKER__maze_Debug CMakeFiles/maze.dir/src/character.cpp.o CMakeFiles/maze.dir/src/map.cpp.o CMakeFiles/maze.dir/src/UI.cpp.o CMakeFiles/maze.dir/src/main.cpp.o CMakeFiles/maze.dir/src/mapgeneration.cpp.o CMakeFiles/maze.dir/src/window.cpp.o | /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.6.1 /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.6.1 /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.6.1
   FLAGS = -g
   LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.6.1  /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.6.1  /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.6.1
   OBJECT_DIR = CMakeFiles/maze.dir

@@ -28,5 +28,11 @@
   "command": "/usr/bin/g++ -I/home/zgz/桌面/week2/./includes -g -o CMakeFiles/maze.dir/src/mapgeneration.cpp.o -c /home/zgz/桌面/week2/src/mapgeneration.cpp",
   "file": "/home/zgz/桌面/week2/src/mapgeneration.cpp",
   "output": "CMakeFiles/maze.dir/src/mapgeneration.cpp.o"
+},
+{
+  "directory": "/home/zgz/桌面/week2/build",
+  "command": "/usr/bin/g++ -I/home/zgz/桌面/week2/./includes -g -o CMakeFiles/maze.dir/src/window.cpp.o -c /home/zgz/桌面/week2/src/window.cpp",
+  "file": "/home/zgz/桌面/week2/src/window.cpp",
+  "output": "CMakeFiles/maze.dir/src/window.cpp.o"
 }
 ]
