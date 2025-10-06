@@ -36,8 +36,8 @@ void Character::takeDamage(int amount) {
 }
 
 sf::Text Character::healthText(){
-    font.loadFromFile("/usr/share/fonts/truetype/arphic/ukai.ttc"); //加载字体文件
-    if(!font.loadFromFile("/usr/share/fonts/truetype/arphic/ukai.ttc")) {
+    font.loadFromFile("./font/ukai.ttc"); //加载字体文件
+    if(!font.loadFromFile("./font/ukai.ttc")) {
         std::cerr << "字体加载失败！请将上述路径替换为系统中存在的字体文件路径" << std::endl;
         // 处理错误，请将上述路径替换为系统中存在的字体文件路径
     }

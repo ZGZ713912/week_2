@@ -27,7 +27,7 @@ const std::string& Map::getName() const {
 
 
 sf::Text Map::endText(){
-    m_font.loadFromFile("/usr/share/fonts/truetype/arphic/ukai.ttc"); //加载字体文件
+    m_font.loadFromFile("./font/ukai.ttc"); //加载字体文件
     sf::Text e_text;                  // 创建文本对象
     e_text.setFont(m_font);       // 绑定加载好的字体
     e_text.setString("end");      // 文本内容
