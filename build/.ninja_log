@@ -1,7 +1,6 @@
 # ninja log v5
 1	12	1759307416798813867	CMakeFiles/Cpp_Maze.dir/src/map.cpp.o	a10969d717077db9
 1	152	1759307465406985169	CMakeFiles/Cpp_Maze.dir/src/main.cpp.o	f3363df40de8ac3b
-152	185	1759307465440372866	Cpp_Maze	cc712f98c08bb2f6
 443	489	1759565648282499304	maze	66f7fdbafd92056f
 3	443	1759565648238049263	CMakeFiles/maze.dir/src/window.cpp.o	58d39a7e3c531742
 2	376	1759565648170358882	CMakeFiles/maze.dir/src/map.cpp.o	a04c1c48e95af4e8

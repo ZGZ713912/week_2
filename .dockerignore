@@ -1,0 +1,12 @@
+# 排除构建目录
+build/
+cmake-build-*/
+
+# 排除CMake缓存文件
+CMakeCache.txt
+CMakeFiles/
+*.cmake
+
+# 排除编译生成的可执行文件
+maze
+Cpp_Maze

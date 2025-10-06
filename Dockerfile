@@ -15,12 +15,13 @@ RUN apt-get update && apt-get install -y \
 # 创建工作目录
 WORKDIR /app
 
-# 复制项目文件到容器中
+# 复制项目文件到容器中（此时会忽略.dockerignore中指定的文件）
 COPY . /app
 
-# 创建构建目录并进行编译
-RUN mkdir -p build && cd build \
-    && cmake .. \
+# 清理可能残留的缓存文件，然后重新构建
+RUN rm -rf build && \
+    mkdir -p build && cd build \
+    && cmake .. -DCMAKE_BUILD_TYPE=Debug \
     && make
 
 # 运行生成的可执行文件
